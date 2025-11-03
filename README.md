@@ -2,7 +2,7 @@
 
 # FakerEngine
 
-![FakerEngine Logo](faker-engine-icon.png)
+<img src="faker-engine-icon.png" alt="FakerEngine Logo" width="25%" />
 
 A modern Electron desktop application for creating data structures, generating fake data, scheduling endpoint executions, and managing API testing workflows. Built with React and Node.js, featuring a beautiful dark UI theme.
 
