@@ -1,471 +1,286 @@
 <!-- @format -->
 
-# FakerEngine
+# FakerEngine - User Guide
 
-<img src="faker-engine-icon.png" alt="FakerEngine Logo" width="25%" />
+Welcome to FakerEngine! This guide will help you get started with generating fake data, testing APIs, and seeding databases.
 
-A modern Electron desktop application for creating data structures, generating fake data, scheduling endpoint executions, and managing API testing workflows. Built with React and Node.js, featuring a beautiful dark UI theme.
+## What is FakerEngine?
 
-## Features
+FakerEngine is a desktop application that helps you:
+
+- Generate realistic fake data for testing and development
+- Test APIs by sending data to endpoints
+- Seed databases with generated data
+- Automate complex workflows combining API calls and database operations
+
+## Quick Start
+
+### 1. First Steps
 
 ![Dashboard](ScreenShots/Dashboard.jpg)
 
-- 🖥️ **Desktop Application** - Native Electron app for Windows, macOS, and Linux
-- 🎨 **Modern Dark UI** - Beautiful, modern dark theme interface with accordion navigation
-- 📊 **Data Structure Builder** - Create custom data structures with nested fields and arrays
-- 🎲 **Fake Data Generation** - Generate realistic fake data using Faker.js
-- 🏢 **Platform Management** - Organize endpoints by platform with environment variables
-- 🌍 **Environment Configuration** - Manage environment-specific variables and configurations
-- 🚀 **Endpoint Management** - Configure and manage multiple endpoints with authentication
-- 📤 **Flexible Sending** - Send data using GET, POST, PUT, PATCH, or DELETE methods
-- ⏰ **Scheduled Jobs** - Schedule endpoint executions and simulations to run automatically
-- 🔄 **Simulations** - Create multi-step execution workflows
-- 📜 **Send History** - Track and review all request/response history with detailed statistics
-- 💾 **NeDB Storage** - Lightweight embedded database (no external database required)
-- 🔍 **Database Viewer** - Directly browse and query your NeDB collections
-- 📥 **Export/Import** - Backup and restore all your data
-- 🔄 **Real-time Preview** - Preview generated data before sending
-- 📊 **Dashboard** - Overview of statistics and recent activity
+1. **Launch the application** - Double-click the FakerEngine icon
+2. **Start on the Dashboard** - View your statistics and recent activity
+3. **Create a Data Structure** - Go to **Data Structures** to define what kind of data you want to generate
 
-## Tech Stack
+### 2. Create Your First Data Structure
 
-### Desktop Application
+![Data Structures List](ScreenShots/DataStructures-List.jpg)
 
-- **Electron** - Cross-platform desktop framework
-- **electron-builder** - Packaging and distribution
+1. Navigate to **Data Structures** → **Data Structures**
+2. Click **"Create Structure"**
+3. Add fields and choose their types:
+   - **Basic Types**: string, number, boolean, date, email, phone, address, etc.
+   - **JSON**: Create JSON objects (static or dynamic with nested fields)
+   - **Arrays**: Generate lists of values
+   - **Objects**: Create nested data structures
+4. Click **"Save Structure"**
 
-### Backend
+![Data Structures Edit](ScreenShots/DataStructures-Edit.jpg)
 
-- **Node.js** with Express
-- **NeDB** - Embedded NoSQL database (file-based)
-- **@faker-js/faker** - Data generation library
-- **Axios** - HTTP client
-
-### Frontend
-
-- **React 18**
-- **React Icons** - Icon library
-- **Modern CSS** - Dark theme with accordion navigation
-- **Axios** - API communication
-
-## Installation
-
-### Prerequisites
-
-- **Node.js** (v14 or higher)
-- **npm** or **yarn**
-
-### Setup
-
-1. Clone the repository:
-
-```bash
-git clone <repository-url>
-cd FakerEngineElectron
-```
-
-2. Install all dependencies:
-
-```bash
-npm run install-all
-```
-
-This will install dependencies for:
-
-- Root (Electron and electron-builder)
-- Backend (Express, NeDB, Faker.js, etc.)
-- Frontend (React and related packages)
-
-## Running the Application
-
-### Development Mode
-
-**Option 1: Using the run script (Recommended)**
-
-```bash
-./run.sh
-```
-
-This script will:
-
-- Check and install dependencies if needed
-- Build the frontend
-- Start Electron (which automatically spawns the backend)
-
-The backend server runs on `http://localhost:38765`
-
-**Option 2: Manual Start**
-
-1. Build the frontend:
-
-```bash
-npm run build-frontend
-```
-
-2. Start Electron:
-
-```bash
-npm start
-# or for development mode:
-npm run dev
-```
-
-### Production Build
-
-Build for your platform:
-
-```bash
-# Build for current platform
-npm run build
-
-# Build for specific platforms
-npm run build:mac      # macOS
-npm run build:win      # Windows
-npm run build:linux    # Linux
-```
-
-Built applications will be in the `dist/` directory.
-
-## Usage
-
-### 1. Platforms & Environments
-
-![Environments](ScreenShots/Environments.jpg)
-
-- **Platforms**: Organize your endpoints by platform (e.g., Production, Staging, Development)
-- **Environments**: Configure environment-specific variables per platform
-  - Set default environment per platform
-  - Use variables in URLs, headers, query params, and request data
-
-### 2. Create Data Structures
-
-![Data Structures](ScreenShots/DataStructures-List.jpg)
-
-- Navigate to **Configuration > Data Structures**
-- Click "Create Structure" to define your data structure
-- Choose field types: string, number, boolean, date, email, name, address, phone, url, uuid, array, or object
-- Configure field properties (min/max, length, nested fields, etc.)
-- Save your structure
-
-### 3. Preview Generated Data
+### 3. Preview Your Data
 
 ![Preview Data](ScreenShots/PreviewData.jpg)
 
-- Go to **Data Management > Preview Data**
-- Select a saved structure
-- Choose how many records to generate
-- Click "Generate Data" to see the fake data
+1. Go to **Data Structures** → **Preview Data**
+2. Select your structure
+3. Choose how many records to generate
+4. Click **"Generate Data"** to see the results
 
-### 4. Configure Endpoints
+## Key Features
 
-![Endpoints](ScreenShots/Endpoints.jpg)
+### Data Structures
 
-- Navigate to **Configuration > Endpoints**
-- Enter endpoint name and URL
-- Select HTTP method (GET, POST, PUT, PATCH, DELETE)
+Create reusable data structures with various field types:
+
+- **String**: Random text
+- **Number**: Random integers (with min/max)
+- **Email, Phone, Address**: Realistic contact information
+- **Static**: Same value for all records
+- **JSON**: Static JSON strings or dynamic JSON with nested fields
+- **Array**: Lists of values
+- **Object**: Nested data structures
+
+### Endpoints & API Testing
+
+1. **Configure Platforms & Environments**
+
+![Environments](ScreenShots/Environments.jpg)
+
+- Go to **Environments** → **Platforms** to create platforms
+- Go to **Environments** → **Environments** to set up environment variables
+
+2. **Create Endpoints**
+
+![Endpoints List](ScreenShots/Endpoints-List.jpg)
+
+- Navigate to **Endpoints** → **Endpoints**
+- Add endpoint URL, method (GET/POST/PUT/PATCH/DELETE)
 - Configure authentication (Bearer Token, Basic Auth, API Key)
-- Add custom headers, query parameters, and path parameters
-- Set request body templates
-- Associate with a platform
-- Save the endpoint
+- Add headers, query parameters, and request body
 
-### 5. Send Data
+![Endpoints Edit](ScreenShots/Endpoints-Edit.jpg)
 
-- Go to **Operations > Send Data**
-- Select an endpoint
-- Choose to use a structure or custom JSON data
-- Select an environment (optional - uses platform default if not selected)
-- Set the count (if using a structure)
-- Click "Send Data"
-- View results with success/failure status, response times, and full response data
+3. **Send Data**
 
-### 6. Schedule Jobs
+![Send Data](ScreenShots/SendData.jpg)
 
-![Create Schedule](ScreenShots/CreateSchedule.jpg)
+- Go to **Endpoints** → **Send Data**
+- Select endpoint and data structure
+- Choose count and environment
+- Click **"Send Data"** to test your API
 
-- Navigate to **Operations > Schedules**
-- Create a schedule for endpoints or simulations
-- Configure:
-  - Interval type (seconds, minutes, hours)
-  - Interval value
-  - Total requests
-  - Requests per interval
-  - Scheduled start time (optional)
-- Monitor progress with real-time statistics
-- Restart completed schedules or reset statistics
+### Database Seeding
 
-### 7. Simulations
+1. **Set Up Database Connection**
 
-![Simulations](ScreenShots/Simulations.jpg)
+![Connections](ScreenShots/Connections.jpg)
 
-- Go to **Operations > Simulations**
-- Create multi-step execution workflows
-- Define steps with:
-  - Endpoint to call
-  - Data structure to use
-  - Delays between steps
-  - Conditional execution
-  - Shared context across steps
-- Execute manually or schedule as a job
+- Go to **Database Management** → **Connections**
+- Add connection for MySQL, PostgreSQL, or MongoDB
+- Test the connection
 
-### 8. View History
+2. **Create a Seeder**
 
-![Send History](ScreenShots/SendHistory.jpg)
+![Seeders](ScreenShots/Seeders.jpg)
 
-- Navigate to **Data Management > Send History**
-- View all past executions with:
-  - Success/failure statistics
-  - Request/response details
-  - Duration and response times
-  - Filter by type, status, and result
-- Review individual request responses
-- Clear history when needed
+- Navigate to **Database Management** → **Seeder**
+- Click **"New Seeder"**
+- Select connection, database, and table
+- Choose data structure and map fields to columns
+- Set record count and save
 
-### 9. Database Viewer
+3. **Execute Seeder**
+   - Click **"Execute"** on a saved seeder
+   - View results with inserted record counts
 
-- Go to **System Administration > DB Viewer**
-- Browse all NeDB collections
-- Query documents with JSON filters
-- View document details
-- Useful for debugging and data inspection
+### Seeder Runs
 
-### 10. Export/Import
+![Seeder Runs](ScreenShots/SeederRuns.jpg)
 
-- Navigate to **System Administration > Export / Import**
-- Export all data to JSON for backup
-- Import previously exported data
-- Supports: Platforms, Environments, Endpoints, Data Structures, Simulations, Schedules, and History
+Create sequential database seeding workflows:
 
-## API Endpoints
-
-The backend API runs on port **38765** (configurable via `PORT` environment variable).
-
-### Health Check
-
-- `GET /api/health` - Check backend status
-
-### Structures
-
-- `GET /api/structures` - Get all structures
-- `GET /api/structures/:id` - Get single structure
-- `POST /api/structures` - Create structure
-- `PUT /api/structures/:id` - Update structure
-- `DELETE /api/structures/:id` - Delete structure
-
-### Platforms
-
-- `GET /api/platforms` - Get all platforms
-- `GET /api/platforms/:id` - Get single platform
-- `POST /api/platforms` - Create platform
-- `PUT /api/platforms/:id` - Update platform
-- `DELETE /api/platforms/:id` - Delete platform
-
-### Environments
-
-- `GET /api/environments` - Get all environments
-- `GET /api/environments/:id` - Get single environment
-- `POST /api/environments` - Create environment
-- `PUT /api/environments/:id` - Update environment
-- `DELETE /api/environments/:id` - Delete environment
-
-### Endpoints
-
-- `GET /api/endpoints` - Get all endpoints
-- `GET /api/endpoints/:id` - Get single endpoint
-- `POST /api/endpoints` - Create endpoint
-- `PUT /api/endpoints/:id` - Update endpoint
-- `DELETE /api/endpoints/:id` - Delete endpoint
-- `POST /api/endpoints/:id/send` - Send data to endpoint
-- `POST /api/endpoints/:id/test` - Test endpoint connection
-
-### Data Generation
-
-- `POST /api/data/generate` - Generate fake data
-  ```json
-  {
-  	"structureId": "structure_id",
-  	"count": 10
-  }
-  ```
-
-### Schedules
-
-- `GET /api/schedules` - Get all schedules
-- `GET /api/schedules/:id` - Get single schedule
-- `POST /api/schedules` - Create schedule
-- `PUT /api/schedules/:id` - Update schedule
-- `DELETE /api/schedules/:id` - Delete schedule
-- `POST /api/schedules/:id/start` - Start a schedule
-- `POST /api/schedules/:id/reset` - Reset schedule statistics
+1. Go to **Database Management** → **Seeder Runs**
+2. Click **"New Seeder Run"**
+3. Add multiple seeder steps
+4. Use data from previous steps with `{{previous.field}}` or `{{stepN.field}}`
+5. Configure delays between steps
+6. Execute the complete workflow
 
 ### Simulations
 
-- `GET /api/simulations` - Get all simulations
-- `GET /api/simulations/:id` - Get single simulation
-- `POST /api/simulations` - Create simulation
-- `PUT /api/simulations/:id` - Update simulation
-- `DELETE /api/simulations/:id` - Delete simulation
-- `POST /api/simulations/:id/execute` - Execute simulation
+![Simulations List](ScreenShots/Simulations-List.jpg)
 
-### Send History
+Create multi-step API testing workflows:
 
-- `GET /api/send-history` - Get all history entries
-- `GET /api/send-history/:id` - Get single history entry
-- `DELETE /api/send-history` - Clear all history
-- `GET /api/send-history/stats/summary` - Get history statistics
+1. Navigate to **Endpoints** → **Simulations**
+2. Create a new simulation
+3. Add steps with endpoints to call
+4. Use data from previous steps in subsequent steps
+5. Execute manually or schedule as a job
 
-### Dashboard
+![Simulations Edit](ScreenShots/Simulations-Edit.jpg)
 
-- `GET /api/dashboard/stats` - Get dashboard statistics
+### Workflows
 
-### Database Viewer
+![Workflows List](ScreenShots/Workflows-List.jpg)
 
-- `GET /api/db/collections` - List all collections
-- `GET /api/db/:collection` - Query collection
-- `GET /api/db/:collection/:id` - Get single document
+Combine API calls and database operations:
 
-### Export/Import
+1. Go to **Dashboard** → **Workflows** (or **Endpoints** → **Workflows**)
+2. Create a new workflow
+3. Add steps:
+   - **Simulations**: Execute API calls
+   - **Seeder Runs**: Perform database operations
+4. Configure delays and step ordering
+5. Execute complete workflows
 
-- `GET /api/export-import/export` - Export all data
-- `POST /api/export-import/import` - Import data
+![Workflow Edit](ScreenShots/WorkFlow-Edit.jpg)
 
-## Project Structure
+### Schedules
 
-```
-FakerEngineElectron/
-├── main.js                 # Electron main process
-├── preload.js              # Electron preload script
-├── faker-engine-icon.png   # Application icon
-├── electron-builder.json   # Electron builder configuration
-├── package.json            # Root package.json
-├── run.sh                  # Development run script
-├── backend/
-│   ├── server.js           # Express server
-│   ├── database.js         # NeDB initialization
-│   ├── models/             # NeDB model classes
-│   │   ├── DataStructure.js
-│   │   ├── Endpoint.js
-│   │   ├── Platform.js
-│   │   ├── Environment.js
-│   │   ├── ScheduledJob.js
-│   │   ├── Simulation.js
-│   │   └── SendHistory.js
-│   ├── routes/             # API routes
-│   ├── services/           # Background services
-│   │   └── scheduler.js    # Job scheduler
-│   └── utils/              # Utility functions
-├── frontend/
-│   ├── public/             # Static assets
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   │   ├── Sidebar.js
-│   │   │   ├── Dashboard.js
-│   │   │   ├── DataStructureBuilder.js
-│   │   │   ├── PlatformManager.js
-│   │   │   ├── EnvironmentManager.js
-│   │   │   ├── EndpointManager.js
-│   │   │   ├── EndpointSender.js
-│   │   │   ├── ScheduleManager.js
-│   │   │   ├── SimulationManager.js
-│   │   │   ├── SendHistory.js
-│   │   │   ├── DbViewer.js
-│   │   │   └── ExportImport.js
-│   │   ├── App.js
-│   │   └── config.js      # API configuration
-│   └── build/             # Production build output
-└── data/                   # NeDB database files (development)
-```
+![Schedules List](ScreenShots/Schedules-List.jpg)
 
-## Data Storage
+Automate repetitive tasks:
 
-The application uses **NeDB** (Embedded NoSQL Database) for storage:
+1. Go to **Endpoints** → **Schedules**
+2. Create a schedule for an endpoint or simulation
+3. Configure:
+   - Interval (seconds, minutes, hours)
+   - Requests per interval
+   - Total requests
+4. Start the schedule and monitor progress
 
-- **Development**: Database files are stored in `./data/` directory
-- **Production**: Database files are stored in OS-specific user data directories:
-  - macOS: `~/Library/Application Support/FakerEngine/data/`
-  - Windows: `%APPDATA%/FakerEngine/data/`
-  - Linux: `~/.config/FakerEngine/data/`
+![Schedules Edit](ScreenShots/Schedules-Edit.jpg)
 
-Database files:
+### Viewing History & Logs
 
-- `platforms.db` - Platform data
-- `environments.db` - Environment configurations
-- `endpoints.db` - Endpoint configurations
-- `datastructures.db` - Data structure definitions
-- `customdatatypes.db` - Custom data type templates
-- `simulations.db` - Simulation definitions
-- `scheduledjobs.db` - Scheduled job configurations
-- `sendhistory.db` - Request/response history
+![Send History](ScreenShots/SendHistory.jpg)
 
-## Field Types
+- **Send History**: **Endpoints** → **Send History** - View all API requests/responses
 
-- **string**: Random alphanumeric string
-- **number**: Random integer (with min/max)
-- **boolean**: True or false
-- **date**: Recent date
-- **email**: Random email address
-- **name**: Full name
-- **address**: Street address with city and country
-- **phone**: Phone number
-- **url**: URL
-- **uuid**: UUID
-- **array**: Array of values (configurable type)
-- **object**: Object with nested fields
+![Send History Details](ScreenShots/SendHistory-Details.jpg)
 
-## Environment Variables
+- **Seeder Log**: **Database Management** → **Seeder Log** - Review database seeding executions
 
-The backend can be configured with environment variables:
+![Seeder Logs](ScreenShots/SeederLogs.jpg)
 
-- `PORT` - Backend server port (default: 38765)
-- `NODE_ENV` - Environment mode (development/production)
-- `SKIP_BACKEND_START` - Skip automatic backend start in Electron (set to 'true')
+- **Workflow Log**: **Endpoints** → **Workflow Log** - Track workflow execution history
 
-## Scripts
+All logs include:
 
-- `npm run install-all` - Install all dependencies (root, backend, frontend)
-- `npm run build-frontend` - Build React frontend
-- `npm start` - Start Electron app
-- `npm run dev` - Start Electron in development mode
-- `npm run build` - Build for current platform
-- `npm run build:mac` - Build for macOS
-- `npm run build:win` - Build for Windows
-- `npm run build:linux` - Build for Linux
+- Success/failure status
+- Duration and timing
+- Detailed results
+- Error messages (if any)
 
-## Building for Distribution
+## Using Context Variables
 
-1. Update version in `package.json`
-2. Build frontend: `npm run build-frontend`
-3. Build for your platform: `npm run build:mac|win|linux`
-4. Find distributables in `dist/` directory
+### In Simulations
+
+- `{{previous.field}}` - Use data from the previous step
+- `{{step1.field}}` - Use data from step 1 (or any step number)
+- `{{env.VARIABLE_NAME}}` - Use environment variable
+
+### In Seeder Runs
+
+- `{{previous.field}}` - Use data from the previous seeder step
+- `{{step1.field}}` - Use data from step 1
+- Works with inserted record IDs and data
+
+### In Workflows
+
+- Workflows can combine simulations and seeder runs
+- Context flows between steps automatically
+
+## Tips & Best Practices
+
+1. **Start Simple**: Create basic data structures first, then add complexity
+2. **Save Everything**: Save your structures, seeders, and workflows for reuse
+3. **Use Environments**: Set up different environments for dev/staging/production
+4. **Test Connections**: Always test database connections before seeding
+5. **Preview Data**: Use Preview Data to verify structures before using them
+6. **Check Logs**: Review execution logs to troubleshoot issues
+7. **Export Data**: Use Export/Import to backup your configurations
 
 ## Troubleshooting
 
-### Backend connection issues
+### Backend Connection Issues
 
-- Ensure backend is running on port 38765
-- Check firewall settings
-- Verify no other application is using port 38765
+- Ensure the application has network permissions
+- Check if port 38765 is available
+- Restart the application if needed
 
-### Database issues
+### Database Connection Fails
 
-- Check file permissions on database files
-- Ensure disk space is available
-- Verify database files aren't corrupted
+- Verify database server is running
+- Check connection credentials
+- Ensure firewall allows connections
+- Test connection using the "Test Connection" button
 
-### Build issues
+### Seeding Errors
 
-- Clear `node_modules` and reinstall: `rm -rf node_modules backend/node_modules frontend/node_modules && npm run install-all`
-- Clear build directory: `rm -rf frontend/build`
-- Rebuild: `npm run build-frontend`
+- Verify field mappings match database columns
+- Check data types are compatible
+- Ensure required fields are mapped
+- Review error messages in Seeder Log
 
-## License
+### API Requests Fail
 
-ISC
+- Verify endpoint URL is correct
+- Check authentication credentials
+- Review headers and request body format
+- Check Send History for detailed error messages
 
-## Contributing
+### Data Not Generating
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+- Verify structure has at least one field
+- Check field configurations are valid
+- Use Preview Data to test structures
+- Review console for error messages
+
+## Data Storage
+
+Your data is stored locally on your computer:
+
+- **macOS**: `~/Library/Application Support/FakerEngine/data/`
+- **Windows**: `%APPDATA%/FakerEngine/data/`
+- **Linux**: `~/.config/FakerEngine/data/`
+
+You can backup your data using **System Administration** → **Export / Import**.
+
+## Support
+
+For issues, questions, or feature requests:
+
+- Check the application logs
+- Review the execution history and logs
+- Export your configuration for troubleshooting
 
 ## Version
 
-Current version: **1.1.3**
+Current version: **2.0.0**
+
+---
+
+**Enjoy using FakerEngine!** 🚀
