@@ -97,8 +97,15 @@ Create reusable data structures with various field types:
 ![Connections](ScreenShots/Connections.jpg)
 
 - Go to **Database Management** → **Connections**
-- Add connection for MySQL, PostgreSQL, or MongoDB
+- Add connection for MySQL, PostgreSQL, MongoDB, or Firebase/Firestore
 - Test the connection
+
+**Supported Database Types:**
+
+- **MySQL/MariaDB**: Traditional SQL database
+- **PostgreSQL**: Advanced SQL database
+- **MongoDB**: NoSQL document database
+- **Firebase/Firestore**: Google's NoSQL document database (requires service account credentials file)
 
 2. **Create a Seeder**
 
@@ -110,9 +117,36 @@ Create reusable data structures with various field types:
 - Choose data structure and map fields to columns
 - Set record count and save
 
+**Firestore-Specific Features:**
+
+- **Automatic Collection Discovery**: Collections are automatically discovered when browsing databases
+- **Manual Collection Entry**: You can also manually enter collection names for subcollections or collections that haven't been created yet
+- **Include All Fields**: When seeding Firestore collections, you can enable "Include all fields from data structure" to include all fields from your data structure, even if they're not explicitly mapped. Since Firestore is schema-less, this allows you to insert all generated fields without mapping each one individually.
+  - Field mappings still work to rename fields if needed
+  - Unmapped fields will use their structure field names as the document field names
+
 3. **Execute Seeder**
    - Click **"Execute"** on a saved seeder
    - View results with inserted record counts
+
+### Database Browser
+
+Browse and explore your database structure:
+
+1. Go to **Database Management** → **Database Browser**
+2. Select a database connection
+3. Choose a database to explore
+4. Select a table/collection to view:
+   - **Structure**: View table schema or collection field structure
+   - **Sample Records**: Preview sample data from the table/collection
+
+**Firestore-Specific Features:**
+
+- **Automatic Collection Discovery**: Collections are automatically discovered and listed in a dropdown
+- **Manual Collection Entry**: For Firestore connections, you can also manually enter collection names:
+  - Useful for subcollections or collections that haven't been created yet
+  - Enter the collection name in the text field below the dropdown
+- **Schema-less Structure**: Since Firestore is schema-less, the structure view shows inferred field types from sample documents
 
 ### Seeder Runs
 
@@ -238,12 +272,29 @@ All logs include:
 - Ensure firewall allows connections
 - Test connection using the "Test Connection" button
 
+**Firebase/Firestore Connection Issues:**
+
+- **Credentials File Path**: Provide the full path to your Firebase service account credentials JSON file
+  - You can browse for the file using the "Browse..." button
+  - Or manually enter the path (e.g., `/path/to/service-account-key.json`)
+  - The file path is stored securely (not the credentials themselves)
+- **Default Credentials**: If no file path is provided, the app will attempt to use default credentials from the `GOOGLE_APPLICATION_CREDENTIALS` environment variable
+- **Project ID**: Ensure your Firebase project ID is correct (found in Firebase Console)
+- **Collection Discovery**: Collections are automatically discovered, but empty collections won't appear until they contain data
+
 ### Seeding Errors
 
 - Verify field mappings match database columns
 - Check data types are compatible
 - Ensure required fields are mapped
 - Review error messages in Seeder Log
+
+**Firestore Seeding Tips:**
+
+- Use "Include all fields" option to quickly seed all fields from your data structure
+- Field mappings allow you to rename fields if needed
+- Firestore doesn't require predefined schemas, so you can add any fields
+- Documents are created with auto-generated IDs unless you specify custom IDs
 
 ### API Requests Fail
 
@@ -279,7 +330,7 @@ For issues, questions, or feature requests:
 
 ## Version
 
-Current version: **2.0.0**
+Current version: **2.1.0**
 
 ---
 
